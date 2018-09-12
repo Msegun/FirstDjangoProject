@@ -1,0 +1,1 @@
+Before starting the project start virtual environment
