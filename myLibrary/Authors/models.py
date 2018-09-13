@@ -10,6 +10,10 @@ class Author(models.Model):
     def __unicode__(self):
         return u'%s %s' % (self.first_name, self.last_name)
 
+    # str method was added to nicely show table values in admin site
+    def __str__(self):
+        return '%s %s' % (self.first_name, self.last_name)
+
 
 class Book(models.Model):
 
@@ -17,4 +21,8 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author)
 
     def __unicode__(self):
+        return self.title
+
+    # str method was added to nicely show table values in admin site
+    def __str__(self):
         return self.title
