@@ -1,5 +1,13 @@
-from django.http import HttpResponse
+from django.utils import timezone
+from django.views.generic.list import ListView
+from .models import Author
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the authors index.")
+class AuthorList(ListView):
+
+    model = Author
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
