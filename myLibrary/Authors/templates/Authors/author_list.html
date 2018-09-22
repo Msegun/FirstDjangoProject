@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
+
 {% block content %}
-    <h1>Authors</h1>
-    <ul>
-    {% for author in object_list %}
-        <li>{{ author.first_name }} | {{ author.last_name }} | {{ author.email }} </li>
-    {% empty %}
-        <li>No authors yet.</li>
-    {% endfor %}
-    </ul>
+    <h1>Lista autorów:</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class = "thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">email</th>
+            </tr>
+        </thead>
+        {% for author in object_list %}
+            <tr>
+                <td> {{ author.id }} </td>
+                <td> {{ author.first_name }} </td>
+                <td> {{ author.last_name }} </td>
+                <td> {{ author.email }} </td>
+            </tr>
+        {% empty %}
+            <li>No authors yet.</li>
+        {% endfor %}
+    </table>
 {% endblock %}
