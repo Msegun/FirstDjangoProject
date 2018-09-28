@@ -28,12 +28,29 @@
         <div class = "col">
             <button id = "start" class = "btn btn-lg btn-primary"> Pobieraj czas z serwera </button>
             <button id = "stop" class = "btn btn-lg btn-danger"> Zatrzymaj pobieranie </button>
+            <h2 id="time-area">Aktualny czas serwera: </h2>
         </div>
     </div>
     <script>
+        var chatSocket;
+
         $(document).ready(function(){
             $("#start").click(function(){
                 alert("start");
+
+                chatSocket = new WebSocket(
+                'ws://' + window.location.host +
+                '/ws/authorTime/');
+
+                chatSocket.onclose = function(e) {
+                console.error('Chat socket closed unexpectedly');
+                };
+            });
+        });
+
+        $(document).ready(function(){
+            $("#stop").click(function(){
+                chatSocket.close();
             });
         });
     </script>

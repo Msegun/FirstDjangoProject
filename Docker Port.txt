@@ -1,0 +1,3 @@
+docker ps (sprawdzamy czy redis jest uruchomiony)
+Jeœli docker nie uruchomi³ redisa
+docker run -p 6379:6379 -d redis:2.8
