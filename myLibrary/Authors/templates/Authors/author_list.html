@@ -23,4 +23,18 @@
             <li>No authors yet.</li>
         {% endfor %}
     </table>
+
+    <div class = "row">
+        <div class = "col">
+            <button id = "start" class = "btn btn-lg btn-primary"> Pobieraj czas z serwera </button>
+            <button id = "stop" class = "btn btn-lg btn-danger"> Zatrzymaj pobieranie </button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#start").click(function(){
+                alert("start");
+            });
+        });
+    </script>
 {% endblock %}
