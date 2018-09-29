@@ -34,23 +34,33 @@
     <script>
         var chatSocket;
 
+        timeSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/authorTime/');
+
+        timeSocket.onmessage = function(e) {
+            var time = e.data;
+            console.debug("Value recieved from TimeConsumer:", time);
+            $("#time-area").text("Aktualny czas serwera: " + time);
+        };
+
+
+        timeSocket.onclose = function(e) {
+            console.error('Time socket closed unexpectedly');
+        };
+
+
         $(document).ready(function(){
             $("#start").click(function(){
                 alert("start");
 
-                chatSocket = new WebSocket(
-                'ws://' + window.location.host +
-                '/ws/authorTime/');
-
-                chatSocket.onclose = function(e) {
-                console.error('Chat socket closed unexpectedly');
-                };
+                timeSocket.send("Get", "Time");
             });
         });
 
         $(document).ready(function(){
             $("#stop").click(function(){
-                chatSocket.close();
+                timeSocket.close();
             });
         });
     </script>

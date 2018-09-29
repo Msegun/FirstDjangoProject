@@ -1,3 +1,6 @@
 docker ps (sprawdzamy czy redis jest uruchomiony)
 Jeœli docker nie uruchomi³ redisa
 docker run -p 6379:6379 -d redis:2.8
+
+po u¿yciu 
+docker system prune -a
