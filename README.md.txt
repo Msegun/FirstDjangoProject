@@ -1,3 +1,3 @@
-Before starting the project start virtual environment
+It's my first django application
 
 myVenv\Scripts\activate
